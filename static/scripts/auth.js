@@ -10,6 +10,8 @@ auth.onAuthStateChanged(user => {
     }
 })
 
+let verifyCooldown = new Date();
+
 const loginForm = document.getElementById("login-form");
 loginForm.addEventListener("submit", (e) => {
     e.preventDefault()
@@ -52,7 +54,6 @@ loginForm.addEventListener("submit", (e) => {
     });
 });
 
-let verifyCooldown;
 const registerForm = document.getElementById("register-form");
 registerForm.addEventListener("submit", (e) => {
     //creates the user, sets display name and sends email verification
@@ -83,9 +84,9 @@ registerForm.addEventListener("submit", (e) => {
 
 const resendEmail = document.getElementById("resend-email");
 resendEmail.addEventListener("click", (e) => {
-    let timeDiff = (new Date().getTime() - verifyCooldown.getTime()) / 60000; // 60 seconds
+    let timeDiff = ((new Date()).getTime() - verifyCooldown.getTime()) / 60000; // 60 seconds
     if(timeDiff > 1){ // avoids too many requests error
-        firebase.auth().currentUser.sendEmailVerification()
+        auth.currentUser.sendEmailVerification()
         .then(() => {
             verifyCooldown = new Date()
         })
@@ -96,7 +97,6 @@ resendEmail.addEventListener("click", (e) => {
 
 const closeContainer = document.getElementById("close-container");
 closeContainer.addEventListener("click", (e) => {
-    const user = auth.currentUser;
     document.getElementById("wait-for-verify").style.display = "none"
     auth.signOut()
 })
