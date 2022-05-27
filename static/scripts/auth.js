@@ -1,7 +1,7 @@
 auth.onAuthStateChanged(user => {
-    if(user){
+    if(user != null){
         if(user.emailVerified){
-            // user can go to hime page only after verifying his email
+            // user can go to home page only after verifying his email
             console.log("user logged in: ", user);
             window.location.replace("home.html");
         }
@@ -27,7 +27,11 @@ loginForm.addEventListener("submit", (e) => {
         document.getElementById("wait-for-verify").style.display = "block" 
 
         // avoids too may requests error
+<<<<<<< HEAD
         let timeDiff = ((new Date()).getTime() - verifyCooldown.getTime()) / 60000;
+=======
+        let timeDiff = ((new Date().getTime()) - verifyCooldown.getTime()) / 60000;
+>>>>>>> e62aca020b8739629b049366173777e1e5b4aaaa
         if(timeDiff > 1) {
             verifyCooldown = new Date()
             return auth.currentUser.sendEmailVerification()
