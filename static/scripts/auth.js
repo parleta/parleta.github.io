@@ -1,5 +1,5 @@
 auth.onAuthStateChanged(user => {
-    if(user != null){
+    if(user){
         if(user.emailVerified){
             // user can go to home page only after verifying his email
             console.log("user logged in: ", user);
