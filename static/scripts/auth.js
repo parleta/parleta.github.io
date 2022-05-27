@@ -1,7 +1,7 @@
 auth.onAuthStateChanged(user => {
     if(user != null){
         if(user.emailVerified){
-            // user can go to hime page only after verifying his email
+            // user can go to home page only after verifying his email
             console.log("user logged in: ", user);
             window.location.replace("home.html");
         }
