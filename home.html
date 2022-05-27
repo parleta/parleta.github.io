@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Home</title>
+  <!-- <link rel="stylesheet" href="{{url_for('static', filename='styles/home.css')}}"> -->
+  <!--   <link rel="stylesheet" href="static/styles/home.css"> -->
+  <link rel="stylesheet" href="https://parleta.github.io/static/styles/home.css">
+</head>
+<body>
+  <div id="mySidenav" class="sidenav">
+    <span class="close-button" onclick="closeNav()">&times;</span>
+    <span>
+      <label for="teacher-student">I'm a</label>
+      <select style="display: inline;" class="menu-select" name="teacher-student" id="teacher-student">
+        <option value="teacher">Teacher</option>
+        <option value="student">Student</option>
+      </select>
+    </span>
+    <span id="create-class">Create new class</span>
+    <span id="join-class" style="display: none;">Join a class</span>
+    <span id="signout-button">Sign Out</span>
+  </div>
+
+  <span style="position: relative; top:10px; font-size: 30px; cursor: pointer; padding: 16px;" onclick="openNav()">&#9776; Menu</span>
+  
+  <div id="main">
+    <h2 style="display: inline-block;">Your classes</h2>
+      <div class="classes-window">
+        <div id="classes">
+          <!-- <div class="spinner"></div> -->
+        </div>
+    </div>
+    
+    <div id="create-class-window" style="display: none">
+      <form id="create-class-form">
+        <span class="close-form" id="close-create-class">&times;</span>
+        <h1>Create new class</h1>
+        <input id="class-name" type="text" placeholder="NAME" required="required" maxlength="16">
+        <input id="class-subject" type="text" placeholder="SUBJECT" required="required" maxlength="18">
+        <input id="class-grade" type="text" placeholder="GRADE" required="required" maxlength="18">
+        <button class="form-submit" id="create-class-submit" type="submit">Create Class</button>
+      </form>
+    </div>
+    
+    <div id="join-class-window" style="display: none">
+      <form id="join-class-form">
+        <span class="close-form" id="close-join-class">&times;</span>
+        <h1>Join a class</h1>
+        <br>
+        <br>
+        <p style="text-align: center; font-size: 20px;">Enter the class code given to you by your teacher</p>
+        <input id="class-code" type="text" placeholder="CLASS CODE" required="required">
+        <button class="form-submit" id="join-class-submit" type="submit">Join Class</button>
+      </form>
+    </div>
+    
+  </div>
+
+  <script src="https://www.gstatic.com/firebasejs/5.6.0/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/5.6.0/firebase-auth.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/5.6.0/firebase-firestore.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/6.1.0/firebase-storage.js"></script>
+  <!-- <script src="{{url_for('static', filename='scripts/firebase.js')}}"></script>
+  <script src="{{url_for('static', filename='scripts/home.js')}}"></script> -->
+  <!--   <script src="static/scripts/firebase.js"></script>
+  <script src="static/scripts/home.js"></script> -->
+  <script src="https://parleta.github.io/static/scripts/firebase.js"></script>
+  <script src="https://parleta.github.io/static/scripts/home.js"></script>
+</body>
+</html>
+
+
+

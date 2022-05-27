@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Classroom Login</title>
+  <!-- <link rel="stylesheet" href="{{url_for('static', filename='styles/index.css')}}"> -->
+  <!-- <link rel="stylesheet" type="text/css" href="https://parleta.github.io/static/styles/index.css"> -->
+  <link rel="stylesheet" href="static/styles/index.css">
+</head>
+<body>
+  <div class="container">
+    <!-- <img src="{{url_for('static', filename='imgs/classroom login image.png')}}"> -->
+    <!--     <img src="static/imgs/classroom login image.png"> -->
+    <img src="https://parleta.github.io/static/imgs/classroom login image.png">
+    <div class="form" id="login-register-form">
+
+      <div class="login-or-register" style="margin-bottom: 0">
+        <button id="option-login" disabled="true">Login</button>
+        <button id="option-register">Register</button>
+      </div>
+
+      <form id="login-form">
+        <input id="login-email" type="email" placeholder="EMAIL" required="required" style="margin-top: 50px;">
+        <input id="login-password" type="password" placeholder="PASSWORD" required="required">
+        <button class="form-submit" id="login-submit" type="submit">Login</button>
+      </form>
+
+      <form id="register-form" style="display: none">
+        <input id="register-name" type="txt" placeholder="NAME" required="required" style="margin-top: 30px;">
+        <input id="register-email" type="email" placeholder="EMAIL" required="required">
+        <input id="register-password" type="password" placeholder="PASSWORD" required="required"  minlength="6">
+        <button class="form-submit" id="register-submit" type="submit">Register</button>
+      </form>
+
+    </div>
+  </div>
+
+  <div id="wait-for-verify" style="display: none;">
+    <div class="verify-container">
+      <span id="close-container">&times;</span>
+      <h1>Verify your email</h1>
+      <div class="group">
+        <p style="margin-bottom: 0;">We sent a link to</p>
+        <p id="need-email"></p>
+      </div>
+      <div class="group">
+        <p>Click on the link to complete you registration</p>
+        <p>If you don't see it, you may need to check your spam folder</p>
+      </div>
+      <div class="group" style="margin-bottom: 10px;">
+        <p>Can`t find the email?</p>
+        <button id="resend-email">Resend Email</button>
+      </div>
+      <span style="font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; font-size: 15px; font-weight: bold;">
+        You still need to login after verifying your email
+      </span>
+    </div>
+  </div>
+  <script src="https://www.gstatic.com/firebasejs/5.6.0/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/5.6.0/firebase-auth.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/5.6.0/firebase-firestore.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/6.1.0/firebase-storage.js"></script>
+  <!-- <script src="{{url_for('static', filename='scripts/firebase.js')}}"></script>
+  <script src="{{url_for('static', filename='scripts/auth.js')}}"></script>
+  <script src="{{url_for('static', filename='scripts/index.js')}}"></script>  -->
+  <!--   <script src="static/scripts/firebase.js"></script>
+  <script src="static/scripts/auth.js"></script>
+  <script src="static/scripts/index.js"></script> -->
+  <script src="https://parleta.github.io/static/scripts/firebase.js"></script>
+  <script src="https://parleta.github.io/static/scripts/auth.js"></script>
+  <script src="https://parleta.github.io/static/scripts/index.js"></script>
+</body>
+</html>
+
+

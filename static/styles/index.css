@@ -1,0 +1,228 @@
+body {
+  margin: 0;
+  background-image: linear-gradient(45deg, rgba(0, 102, 255, 0.7), rgba(51, 204, 51, 0.7));
+  height: 100vh;
+  width: 100vw;
+  overflow: auto;
+}
+
+.container {
+  position: absolute;
+  background-color: white;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  height: 650px;
+  width: 1075px;
+  border-radius: 25px;
+}
+
+.container img {
+  position: absolute;
+  height: 70%;
+  width: auto;
+  left: 5%;
+  top: 50%;
+  transform: translate(0, -50%);
+}
+
+.container .form {
+  background-color: rgba(0, 102, 255, 0.2);
+  border-radius: 10px;
+  position: absolute;
+  height: 70%;
+  width: 45%;
+  left: 50%;
+  top: 50%;
+  transform: translate(0, -50%);
+}
+
+#login-form {
+  position: relative;
+  height: 100%;
+  width: 100%;
+}
+
+#login-form input {
+  background-color: white;
+  border: 2px solid;
+  border-radius: 10px;
+  position: relative;
+  padding: 0 10px;
+  height: 15%;
+  width: 75%;
+  left: 50%;
+  transform: translate(-50%, 0);
+  margin-bottom: 40px;
+}
+
+#register-form {
+  position: relative;
+  height: 100%;
+  width: 100%;
+}
+
+#register-form input {
+  background-color: white;
+  border: 2px solid;
+  border-radius: 10px;
+  position: relative;
+  padding: 0 10px;
+  height: 15%;
+  width: 75%;
+  left: 50%;
+  transform: translate(-50%, 0);
+  margin-bottom: 20px;
+}
+
+.container form input:-webkit-autofill,
+.container form input:-webkit-autofill:hover, 
+.container form input:-webkit-autofill:focus,
+.container form textarea:-webkit-autofill,
+.container form textarea:-webkit-autofill:hover,
+.container form textarea:-webkit-autofill:focus,
+.container form select:-webkit-autofill,
+.container form select:-webkit-autofill:hover,
+.container form select:-webkit-autofill:focus {
+  border: 2px solid;
+  -webkit-text-fill-color: black;
+  box-shadow: 0 0 0px 1000px white inset;
+}
+
+.form-submit {
+  background-color: white;
+  border: 2px solid ;
+  border-radius: 10px;
+  position: relative;
+  height: 12%;
+  width: 40%;
+  left: 50%;
+  transform: translate(-50%, 0);
+  cursor: pointer;
+}
+
+.form-submit:hover {
+  background-color: rgb(235, 235, 235);
+}
+
+.form .login-or-register {
+  position: relative;
+  left: 0;
+  border: 2px solid;
+  border-color: rgba(0, 0, 0, 0.4);
+  border-radius: 7px;
+  height: 12%;
+}
+
+#option-login {
+  cursor: pointer;
+  background-color: transparent;
+  position: absolute;
+  height: 100%;
+  width: 50%;
+  left: 0;
+  border: 0;
+  border-right: 0.5px solid;
+  border-right-color: rgba(0, 0, 0, 0.4);
+  border-top-left-radius: 4px;
+  border-bottom-left-radius: 4px;
+}
+
+#option-login:hover {
+  background-color: rgb(232, 240, 252);
+}
+
+#option-login:disabled {
+  cursor: default;
+  background-color: rgba(0, 102, 255, 0.5);
+}
+
+#option-login:disabled:hover {
+  background-color: rgba(0, 102, 255, 0.5);
+}
+
+#option-register {
+  cursor: pointer;
+  background-color: transparent;
+  position: absolute;
+  height: 100%;
+  width: 50%;
+  right: 0;
+  border: 0;
+  border-left: 0.5px solid;
+  border-left-color: rgba(0, 0, 0, 0.4);
+  border-top-right-radius: 4px;
+  border-bottom-right-radius: 4px;
+}
+
+#option-register:hover {
+  background-color: rgb(232, 240, 252);
+}
+
+#option-register:disabled {
+  cursor: default;
+  background-color: rgba(0, 102, 255, 0.5);
+}
+
+#option-register:disabled:hover {
+  background-color: rgba(0, 102, 255, 0.5);
+}
+
+#wait-for-verify {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  background-color: rgba(0, 0, 0, 0.8);
+}
+
+.verify-container {
+  position: absolute;
+  height: 480px;
+  width: 700px;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  color: rgb(34, 66, 80);
+  background-color: rgb(231, 231, 231);
+}
+
+.verify-container h1 {
+  margin-top: 7%;
+  font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-size: 200%;
+}
+.verify-container p {
+  margin: 0;
+}
+
+.group {
+  font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-size: 130%;
+  margin-bottom: 6%;
+}
+
+#resend-email {
+  margin: 2%;
+  padding: 18px;
+  font-size: 18px;
+  background-color: rgb(49, 170, 128);
+  color: rgb(245, 245, 245);
+  border: 0;
+  border-radius: 5px;
+}
+
+#resend-email:hover{
+  cursor: pointer;
+  background-color: rgb(89, 177, 146);
+}
+
+#close-container {
+  position: absolute;
+  left: 12px;
+  font-size: 50px;
+}
+
+#close-container:hover {
+  cursor: pointer;
+}

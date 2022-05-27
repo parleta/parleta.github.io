@@ -1,0 +1,282 @@
+body {
+    margin: 0;
+}
+
+body div {
+    display: inline-block;
+}
+
+#members {
+    position: absolute;
+    overflow-y: scroll;
+    height: 705px;
+    width: 250px;
+    background-color: rgb(245, 245, 245);
+}
+
+/* Hide scrollbar for Chrome, Safari and Opera */
+#members::-webkit-scrollbar {
+    display: none;
+}
+
+/* Hide scrollbar for IE, Edge and Firefox */
+#members {
+  -ms-overflow-style: none;  /* IE and Edge */
+  scrollbar-width: none;  /* Firefox */
+}
+
+#members:first-child {
+    padding-top: 15px;
+}
+
+#members div {
+    height: fit-content;
+    position: relative;
+    width: 180px;
+    left: 50%;
+    transform: translate(-50%, 0%);
+}
+
+#members div span {
+    display: inline-block;
+    position: relative;
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size: larger;
+}
+
+.send-email {
+    float: right;
+    cursor: pointer;
+}
+
+.send-email-to-teacher {
+    display: inline;
+    font-size: 25px;
+    width: fit-content;
+    margin: 0;
+    margin-left: 10px;
+    cursor: pointer;
+}
+
+#members hr {
+    width: 90%;
+    border-width: 0;
+    height: 1px;
+    background-color: rgb(154, 154, 154);
+    margin: 15px 0 15px 5%;
+}
+
+#main {
+    position: absolute;
+    left: 250px;
+    width: 1200px;
+    font-family: 'Google Sans',Roboto,Arial,sans-serif;
+}
+
+#info {
+    position: relative;
+    height: 150px;
+    width: 700px;
+    left: 30%;
+    transform: translate(-30%, 0);
+    background-color: rgb(103, 151, 255);
+    border-radius: 4px;
+    margin-top: 30px;
+    margin-bottom: 100px;
+}
+
+#info h1 {
+    font-weight: lighter;
+    font-size: 35px;
+    margin-bottom: 0;
+    margin-left: 30px;
+}
+
+#info hr {
+    background-color:rgb(30, 30, 30);
+    width: 75%;
+    margin-left: 30px;
+    margin-top: 5px;
+    border-width: 0;
+    height: 2px;
+}
+
+#info p {
+    font-size: 25px;
+    width: fit-content;
+    margin: 0;
+    margin-left: 30px;
+}
+
+#assignment-title {
+    position: relative;
+    width: 690px;
+    left: 160px
+}
+
+#assignment-title span {
+    display: inline-block;
+    font-size: 35px;
+}
+
+#assignments {
+    position: relative;
+    overflow-y: scroll;
+    height: 350px;
+    width: 710px;
+    left: 30%;
+    transform: translate(-30%, 0);
+}
+
+/* Hide scrollbar for Chrome, Safari and Opera */
+#assignments::-webkit-scrollbar {
+    display: none;
+}
+
+/* Hide scrollbar for IE, Edge and Firefox */
+#assignments {
+  -ms-overflow-style: none;  /* IE and Edge */
+  scrollbar-width: none;  /* Firefox */
+}
+
+#assignments div {
+    display: inline-block;
+    height: 50px;
+    width: 700px;
+    border: solid 1px;
+    border-radius: 3px;
+    border-color: rgba(0, 0, 0, 0.2);
+    margin-top: 10px;
+}
+
+#assignments div:hover {
+    cursor: pointer;
+    background-color: rgb(240, 240, 240);
+}
+
+#assignments div span {
+    position: fixed;
+    line-height: 50px;
+    vertical-align: middle
+}
+
+.assignment-name {
+    left: 20px;
+    font-size: 25px;
+    color: rgb(65, 65, 65);
+}
+
+.assignment-date {
+    right: 40px;
+    color:rgb(154, 154, 154)
+}
+
+.assignment-submitted {
+    position: absolute;
+    right: 15px;
+    font-size: 25px;
+    color: green;
+}
+
+#assignment-info-window {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.8);
+    left: 0;
+    top: 0;
+}
+
+#assignment-info-container {
+    position: relative;
+    width: 800px;
+    height: 580px;
+    background-color: rgb(231, 231, 231);
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+#assignment-info-container > div {
+    display: block;
+    position: relative;
+    left: 50%;
+    transform: translate(-50%, 0);
+}
+
+#assignment-info {
+    height: 300px;
+    margin-top: 50px;
+}
+
+#assignment-info > h1,
+#assignment-info > p {
+    position: relative;
+    width: fit-content;
+    max-width: 600px;
+    left: 50%;
+    transform: translate(-50%, 0);
+}
+
+#submit-assignment {
+    bottom: 0;
+}
+
+#submit-assignment-form {
+    position: relative;
+    left: 50%;
+    transform: translate(-50%, 0);
+    text-align-last: center;
+}
+
+#submit-assignment-form > h1 {
+    font-weight: normal;
+    margin-bottom: 10px;
+}
+
+#submit-assignment-form > input {
+    font-size: 15px;
+    margin-bottom: 20px;
+}
+
+#submit-assignment-form > input[type=file]::file-selector-button {
+    background-color: white;
+    padding: 5px;
+    border-radius: 3px;
+    border-width: 2px;
+    border-color: rgba(0, 0, 0, 0.5);
+}
+
+#submit-assignment-form > input[type=file]::file-selector-button:hover {
+    cursor: pointer;
+}
+
+.form-submit {
+    font-size: 17px;
+    background-color: rgb(122, 255, 133);
+    border: 2px solid ;
+    padding: 5px 10px 5px 10px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.form-submit:hover {
+    background-color: rgb(168, 255, 175);
+}
+
+#assignment-info-container hr {
+    border-width: 0;
+    background-color: rgb(184, 184, 184);
+    height: 2px;
+}
+
+.close-form {
+    position: absolute;
+    left: 12px;
+    font-size: 50px;
+}
+  
+.close-form:hover {
+    cursor: pointer;
+}

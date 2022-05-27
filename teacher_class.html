@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Class</title>
+  <!-- <link rel="stylesheet" href="{{url_for('static', filename='styles/teacher_class.css')}}"> -->
+  <!--   <link rel="stylesheet" href="static/styles/teacher_class.css"> -->
+  <link rel="stylesheet" href="https://parleta.github.io/static/styles/teacher_class.css">
+</head>
+<body>
+  <div id="members">
+
+  </div>
+  <div id="main">
+    <div id="info">
+
+    </div>
+
+    <div id="assignment-title">
+      <span>Assignments</span>
+      <span id="create-assignment">＋</span>
+    </div>
+    <div id="assignments">
+
+    </div>
+  </div>
+
+  <div id="create-assignment-window" style="display: none">
+    <form id="create-assignment-form">
+      <span class="close-form" id="close-create-assignment">&times;</span>
+      <h1>Create new assignment</h1>
+      <input id="assignment-name" type="text" placeholder="NAME" required="required" maxlength="20">
+      <textarea id="assignment-description" required="required" rows="3" cols="50" placeholder="description..."></textarea>
+      <br>
+      <label for="deadline">Deadline:</label>
+      <input id="deadline" type="date" required="required">
+      <button class="form-submit" id="create-assignment-submit" type="submit">Create Assignment</button>
+    </form>
+  </div>
+
+  <div id="assignment-info-window" style="display: none;">
+    <div id="assignment-info-container">
+      <span id="close-assignment-info">&times;</span>
+      <div id="students-info">
+        
+      </div>
+      <div id="assignment-info">
+
+      </div>
+    </div>
+  </div>
+
+  <script src="https://www.gstatic.com/firebasejs/5.6.0/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/5.6.0/firebase-auth.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/5.6.0/firebase-firestore.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/6.1.0/firebase-storage.js"></script>
+  <!-- <script src="{{url_for('static', filename='scripts/firebase.js')}}"></script>
+  <script src="{{url_for('static', filename='scripts/teacher_class.js')}}"></script> -->
+  <!--   <script src="static/scripts/firebase.js"></script>
+  <script src="static/scripts/teacher_class.js"></script> -->
+  <script src="https://parleta.github.io/static/scripts/firebase.js"></script>
+  <script src="https://parleta.github.io/static/scripts/teacher_class.js"></script>
+</body>
+</html>

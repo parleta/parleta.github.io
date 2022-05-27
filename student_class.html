@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Class</title>
+  <!-- <link rel="stylesheet" href="{{url_for('static', filename='styles/student_class.css')}}"> -->
+  <!--   <link rel="stylesheet" href="static/styles/student_class.css"> -->
+  <link rel="stylesheet" href="https://parleta.github.io/static/styles/student_class.css">
+</head>
+<body>
+  <div id="members">
+
+  </div>
+  <div id="main">
+    <div id="info">
+
+    </div>
+
+    <div id="assignment-title">
+      <span>Assignments</span>
+    </div>
+    <div id="assignments">
+
+    </div>
+  </div>
+
+  <div id="assignment-info-window" style="display: none;">
+    <div id="assignment-info-container">
+      <span class="close-form" id="close-assignment-window">&times;</span>
+      <div id="assignment-info">
+        
+      </div>
+      <hr>
+      <div id="submit-assignment">
+        <form id="submit-assignment-form">
+          <h1>Sumbit Assignment</h1>
+          <p id="deadline"></p>
+          <input type="file" id="assignment-file" required="required" accept=".txt, .doc, .docx, .pdf, .png, .jpg">
+          <br>
+          <button class="form-submit" type="submit">submit</button>
+        </form>
+      </div>
+      
+    </div>
+  </div>
+
+  <script src="https://www.gstatic.com/firebasejs/5.6.0/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/5.6.0/firebase-auth.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/5.6.0/firebase-firestore.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/6.1.0/firebase-storage.js"></script>
+  <!-- <script src="{{url_for('static', filename='scripts/firebase.js')}}"></script>
+  <script src="{{url_for('static', filename='scripts/student_class.js')}}"></script> -->
+  <!--   <script src="static/scripts/firebase.js"></script>
+  <script src="static/scripts/student_class.js"></script> -->
+  <script src="https://parleta.github.io/static/scripts/firebase.js"></script>
+  <script src="https://parleta.github.io/static/scripts/student_class.js"></script>
+</body>
+</html>
