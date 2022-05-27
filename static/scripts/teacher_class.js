@@ -14,7 +14,7 @@ function timestampToDate(timestamp) {
 }
 
 const classId = sessionStorage.getItem("classId")
-const emailMsg = '**Please make sure you are logged in from the correct browser account**'
+const emailMsg = '***Please make sure you are logged in from the correct browser account***'
 
 window.onload = function() {
     db.collection('classes').doc(classId).onSnapshot(snapshot => {
