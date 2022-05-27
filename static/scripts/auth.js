@@ -27,7 +27,7 @@ loginForm.addEventListener("submit", (e) => {
         document.getElementById("wait-for-verify").style.display = "block" 
 
         // avoids too may requests error
-        let timeDiff = (new Date().getTime() - verifyCooldown.getTime()) / 60000;
+        let timeDiff = ((new Date().getTime()) - verifyCooldown.getTime()) / 60000;
         if(timeDiff > 1) {
             verifyCooldown = new Date()
             return auth.currentUser.sendEmailVerification()
