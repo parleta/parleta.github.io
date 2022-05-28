@@ -124,8 +124,9 @@ window.onload = function() {
                         var link = document.createElement("a");
                         link.download = fileRef.name;
                         link.href = url;
+                        link.target = '_blank'
                         document.body.appendChild(link);
-                        link.click();
+                        link.click()
                         document.body.removeChild(link);
                         delete link;
                     }   
