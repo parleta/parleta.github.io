@@ -5,7 +5,7 @@ xObj.onreadystatechange = () => {
     if (xObj.readyState == 4 && xObj.status == 200) {
         // 2. call your callback function
         const config = JSON.parse(xObj.responseText)
-        firebase.initializeApp(JSON.parse(config));
+        firebase.initializeApp(config);
 
         // update firestore settings
         firebase.firestore().settings({ timestampsInSnapshots: true });
