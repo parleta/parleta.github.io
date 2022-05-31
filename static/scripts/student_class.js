@@ -25,7 +25,7 @@ let assignmentName;
 const classId = sessionStorage.getItem("classId")
 const emailMsg = '***Please make sure you are logged in from the correct browser account***'
 
-window.onload = function() {
+
     db.collection('classes').doc(classId).onSnapshot(snapshot => {
         const Class = snapshot.data();
         sessionStorage.setItem('students', JSON.stringify(Class.students))
@@ -66,76 +66,76 @@ window.onload = function() {
         }
     })
 
-    //shows assignments
-    db.collection('assignments').where('class_id', '==', classId)
-    .onSnapshot(snapshot =>  {
-        const data = snapshot.docs;
-        // Sorts the assignments by creation date
-        data.sort((a, b) => {
-            const aDate = a.data().created_at.toDate()
-            const bDate = b.data().created_at.toDate()
-            if (aDate < bDate) return -1;
-            if (aDate > bDate) return 1;
-            return 0;
-        })
+//shows assignments
+db.collection('assignments').where('class_id', '==', classId)
+.onSnapshot(snapshot =>  {
+    const data = snapshot.docs;
+    // Sorts the assignments by creation date
+    data.sort((a, b) => {
+        const aDate = a.data().created_at.toDate()
+        const bDate = b.data().created_at.toDate()
+        if (aDate < bDate) return -1;
+        if (aDate > bDate) return 1;
+        return 0;
+    })
 
-        let html = ``;
-        data.forEach(doc => {
-            const assignment = doc.data();
-            const date = timestampToDate(assignment.created_at)
-            if(assignment.students.hasOwnProperty(auth.currentUser.uid)){
-                html += `<div id="${doc.id}">
-                            <span class="assignment-name">${assignment.name}</span>
-                            <span class="assignment-date">published at ${date}</span>
-                            <span class="assignment-submitted">✓</span>
-                        </div>`
-            } else {
-                html += `<div id="${doc.id}">
-                            <span class="assignment-name">${assignment.name}</span>
-                            <span class="assignment-date">published at ${date}</span>
-                        </div>`
-            }
-        })
-        document.getElementById('assignments').innerHTML = html;
-
-        const assignments = document.querySelectorAll("#assignments div")
-        for(let a of assignments){
-            a.addEventListener('click', async (e) => {
-                // Opens assignment window after clicking on it
-                currentAssignmentId = a.id;
-                const doc = await db.collection('assignments').doc(a.id).get()
-                const assignment = doc.data()
-                assignmentName = assignment.name
-                document.getElementById("assignment-info").innerHTML = `<h1>${assignmentName}</h1>
-                                                                        <p>${assignment.description}</p>`
-                if(assignment.students.hasOwnProperty(auth.currentUser.uid)) { // If the user is in the list of the students submitted this assignment
-                    document.getElementById('submit-assignment').innerHTML = `<h3 style="text-align: center">You already submitted this assignment</h3>`
-                    
-                } else {
-                    document.getElementById('submit-assignment').innerHTML = `<form id="submit-assignment-form">
-                                                                                <h1>Sumbit Assignment</h1>
-                                                                                <p id="deadline"></p>
-                                                                                <input type="file" id="assignment-file" required="required" accept=".txt, .doc, .docx, .pdf, .png, .jpg">
-                                                                                <br>
-                                                                                <button class="form-submit" type="submit">submit</button>
-                                                                                </form>`
-                    const deadline = timestampToDate(assignment.deadline)
-                    document.getElementById('deadline').textContent = 'Deadline - ' + deadline
-                    document.getElementById("assignment-info").innerHTML = `<h1>${assignmentName}</h1>
-                                                                            <p>${assignment.description}</p>`
-
-                    document.getElementById("submit-assignment-form").addEventListener('submit', OnAssignmentSubmission)
-                    document.getElementById('assignment-file').addEventListener("change", (e) => {
-                        // When selecting file to submit
-                        e.preventDefault()
-                        file = e.target.files[0];
-                    })
-                }
-                document.getElementById("assignment-info-window").style.display = 'block'
-            })
+    let html = ``;
+    data.forEach(doc => {
+        const assignment = doc.data();
+        const date = timestampToDate(assignment.created_at)
+        if(assignment.students.hasOwnProperty(auth.currentUser.uid)){
+            html += `<div id="${doc.id}">
+                        <span class="assignment-name">${assignment.name}</span>
+                        <span class="assignment-date">published at ${date}</span>
+                        <span class="assignment-submitted">✓</span>
+                    </div>`
+        } else {
+            html += `<div id="${doc.id}">
+                        <span class="assignment-name">${assignment.name}</span>
+                        <span class="assignment-date">published at ${date}</span>
+                    </div>`
         }
     })
-}
+    document.getElementById('assignments').innerHTML = html;
+
+    const assignments = document.querySelectorAll("#assignments div")
+    for(let a of assignments){
+        a.addEventListener('click', async (e) => {
+            // Opens assignment window after clicking on it
+            currentAssignmentId = a.id;
+            const doc = await db.collection('assignments').doc(a.id).get()
+            const assignment = doc.data()
+            assignmentName = assignment.name
+            document.getElementById("assignment-info").innerHTML = `<h1>${assignmentName}</h1>
+                                                                    <p>${assignment.description}</p>`
+            if(assignment.students.hasOwnProperty(auth.currentUser.uid)) { // If the user is in the list of the students submitted this assignment
+                document.getElementById('submit-assignment').innerHTML = `<h3 style="text-align: center">You already submitted this assignment</h3>`
+                
+            } else {
+                document.getElementById('submit-assignment').innerHTML = `<form id="submit-assignment-form">
+                                                                            <h1>Sumbit Assignment</h1>
+                                                                            <p id="deadline"></p>
+                                                                            <input type="file" id="assignment-file" required="required" accept=".txt, .doc, .docx, .pdf, .png, .jpg">
+                                                                            <br>
+                                                                            <button class="form-submit" type="submit">submit</button>
+                                                                            </form>`
+                const deadline = timestampToDate(assignment.deadline)
+                document.getElementById('deadline').textContent = 'Deadline - ' + deadline
+                document.getElementById("assignment-info").innerHTML = `<h1>${assignmentName}</h1>
+                                                                        <p>${assignment.description}</p>`
+
+                document.getElementById("submit-assignment-form").addEventListener('submit', OnAssignmentSubmission)
+                document.getElementById('assignment-file').addEventListener("change", (e) => {
+                    // When selecting file to submit
+                    e.preventDefault()
+                    file = e.target.files[0];
+                })
+            }
+            document.getElementById("assignment-info-window").style.display = 'block'
+        })
+    }
+})
+
 
 let file;
 async function OnAssignmentSubmission(e) {
