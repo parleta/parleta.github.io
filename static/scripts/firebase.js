@@ -1,7 +1,7 @@
 //read the firebase info from json file
 const xObj = new XMLHttpRequest();
 xObj.overrideMimeType("application/json");
-xObj.open('GET', 'config.json', false);
+xObj.open('GET', '/static/scripts/config.json', false);
 xObj.onreadystatechange = () => {
     if (xObj.readyState == 4 && xObj.status == 200) {
 
