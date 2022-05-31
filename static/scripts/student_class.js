@@ -1,3 +1,7 @@
+const auth = firebase.auth()
+const db = firebase.firestore()
+const storage = firebase.storage()
+
 auth.onAuthStateChanged(user => {
     if(user){
         if (user.emailVerified){
