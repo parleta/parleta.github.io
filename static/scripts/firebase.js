@@ -1,11 +1,22 @@
-const firebaseConfig = {
-    apiKey: "AIzaSyC1NusntUcWqSPB1vrf_h34dg8QU10H7pg",
-    authDomain: "classroom-c429c.firebaseapp.com",
-    projectId: "classroom-c429c",
-    appId: "1:428755126371:web:a51d93dc3ff5254db4d056",
-    storageBucket: "classroom-c429c.appspot.com"
-};
-firebase.initializeApp(firebaseConfig);
+function getFirebaseConfig(){
+    return new Promise((resolve, reject) => {
+        const xObj = new XMLHttpRequest();
+        xObj.overrideMimeType("application/json");
+        xObj.open('GET', './config.json', false);
+        xObj.onreadystatechange = () => {
+            if (xObj.readyState == 4 && xObj.status == 200) {
+                // 2. call your callback function
+                resolve(xObj.responseText);
+            }
+        };
+        xObj.send();
+    })
+}
+
+getFirebaseConfig()
+.then(config => {
+    firebase.initializeApp(JSON.parse(config));
+})
 
 // make auth and firestore references
 const auth = firebase.auth();
