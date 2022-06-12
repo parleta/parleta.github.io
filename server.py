@@ -19,4 +19,4 @@ def teacherClass():
 def studentClass():
     return render_template('/student_class.html')
 
-app.run()
+app.run(host='0.0.0.0')

@@ -140,7 +140,7 @@ db.collection('assignments').where('class_id', '==', classId)
 let file;
 async function OnAssignmentSubmission(e) {
     e.preventDefault()
-    // submitts the assignment
+    // submits the assignment
     document.getElementById("assignment-info-window").style.display = 'none'
 
     // Checks if the file is valid
@@ -152,7 +152,7 @@ async function OnAssignmentSubmission(e) {
     }
     
     const fileRef = storage.ref(`assignments submitted/${currentAssignmentId}/${auth.currentUser.uid}`) // Creates the path for the file
-    await fileRef.child(`${assignmentName} - ${auth.currentUser.displayName}.${fileType}`).put(file) // sets its name to "assignmentName - user's name"
+    await fileRef.child(`${assignmentName} - ${auth.currentUser.displayName}.${fileType}`).put(file) // sets its name to "assignment's name - user's name"
     await db.collection("assignments").doc(currentAssignmentId).set({
         students: {
             [`${auth.currentUser.uid}`]: firebase.firestore.Timestamp.now()
