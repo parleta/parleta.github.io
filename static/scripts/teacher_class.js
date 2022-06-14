@@ -149,13 +149,23 @@ db.collection('assignments').where('class_id', '==', classId)
     }
 })
 
-const today = (new Date()).toLocaleDateString().split('/')
-let [year, month, day] = [today[2], today[0], today[1]] //yyyy-mm-dd
-if(month.length == 1) month = '0' + month;
-if(day.length == 1) day = '0' + day;
+// Gets today's date
+var today = new Date();
+var dd = today.getDate();
+var mm = today.getMonth() + 1; //January is 0!
+var yyyy = today.getFullYear();
 
-const todayDate = year + '-' + month + '-' + day
-document.getElementById('deadline').setAttribute("min", todayDate);
+// Add zero at the beginning of a number if needed
+if (dd < 10) {
+   dd = '0' + dd;
+}
+
+if (mm < 10) {
+   mm = '0' + mm;
+} 
+    
+today = yyyy + '-' + mm + '-' + dd;
+document.getElementById('deadline').setAttribute("min", today); // Sets the minimum date of the date selector for today
 
 
 const createAssignment = document.getElementById("create-assignment")
