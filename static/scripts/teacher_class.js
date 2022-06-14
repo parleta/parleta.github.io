@@ -174,7 +174,7 @@ createAssignment.addEventListener("click", (e) => {
 })
 
 const CreateAssignmentForm = document.getElementById('create-assignment-form')
-CreateAssignmentForm.addEventListener('submit', async (e) => {
+CreateAssignmentForm.addEventListener('submit', (e) => {
     e.preventDefault()
     const deadline = document.getElementById('deadline').value;
     const description = document.getElementById('assignment-description').value;
